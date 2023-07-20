@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Auth;
 use App\Models\Frontuser;
+use App\Models\User;
 
 use Yajra\Datatables\Datatables;
 
@@ -158,7 +159,7 @@ class TicketController extends Controller
     {  
         $get_ticket_detail = Ticket::where(['id'=>$id])->orderBy('id','DESC')->first(); 
 
-        $getUser = Frontuser::orderBy('name','asc')->get();
+        $getUser = User::orderBy('name','asc')->get();
         return view('admin.ticket.edit',compact('get_ticket_detail','getUser'));
     }
 
